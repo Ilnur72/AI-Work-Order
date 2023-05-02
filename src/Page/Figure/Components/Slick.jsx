@@ -20,7 +20,7 @@ function Slick({ category, setData}) {
   }, [activeDotIndex,category]);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -34,7 +34,7 @@ function Slick({ category, setData}) {
   return (
     <div className="flex items-center justify-evenly">
       <button onClick={gotoPrev}><i className="fa-solid fa-chevron-left fa-2xl" style={{color: "#939ba9"}}></i></button>
-      <div style={{ width: "300px" }} className=" pt-7">
+      <div style={{ width: "300px" }}>
         <Slider {...settings}  ref={customeSlider}>
           {category.map((i, index) => {
             return (

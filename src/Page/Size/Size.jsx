@@ -35,10 +35,10 @@ const Size = () => {
   };
 
   return (
-    <div >
-      <img src={icon} alt="logo" />
+    <div>
+      <img src={icon} width={150} alt="logo" />
       <Range status={1} />
-      <h2 className="text-zinc-600 text-2xl font-semibold mt-20 text-center">
+      <h2 className="text-zinc-600 text-2xl font-semibold mt-8 text-center">
         Olchamlarni kiriting
       </h2>
       <form className="mt-8 px-5">
@@ -115,7 +115,7 @@ const Size = () => {
             />
           </div>
         </div>
-        <div className="mt-11 flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <div className="w-36 text-center">
             <h3 style={{ color: "#00A0FA" }} className="text-xl font-bold mb-2">
               Sonini kiriting
@@ -152,7 +152,7 @@ const Size = () => {
           </div> */}
         </div>
         <div
-          style={{ marginTop: "158px" }}
+          style={{ marginTop: "90px" }}
           className="flex items-center justify-between"
         >
           <Link to={"/"}>

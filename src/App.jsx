@@ -12,7 +12,7 @@ import List from "./Page/List/List";
 function App() {
 
   return (
-    <div style={{maxWidth: "412px", width:"100%"}} className="pb-10  mx-auto mt-5 relative">
+    <div style={{maxWidth: "412px", width:"100%"}} className="mx-auto relative">
      <Routes>
        {/* <Route path="/" element={<Home/>}/> */}
        {/* <Route path="/category" element={<Category/>}/> */}

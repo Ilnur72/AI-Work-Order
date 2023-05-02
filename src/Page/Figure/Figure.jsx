@@ -55,10 +55,10 @@ const Figure = () => {
   }, []);
 
   return (
-    <div className="">
-      <img src={icon} alt="logo" />
+    <div className="px-5">
+      <img src={icon} width={150} alt="logo" />
       <Range status={2} />
-      <div className="pt-10">
+      <div className="pt-9">
         <Slick
           category={
             status === 9
@@ -69,7 +69,7 @@ const Figure = () => {
           }
           setData={setData}
         />
-        <h2 className="text-lg font-semibold text-center mt-10">
+        <h2 className="text-lg font-semibold text-center mt-5">
           Romni shaklini tanlang
         </h2>
       </div>
@@ -96,7 +96,7 @@ const Figure = () => {
         })}
       </div>
 
-      <div className="px-5 mt-52">
+      <div style={{marginTop:"100px"}} className="">
         <ButtonLink leftLink={"/"} rightLink={"/color"} data={data}/>
       </div>
     </div>

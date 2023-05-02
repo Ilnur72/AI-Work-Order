@@ -70,20 +70,20 @@ const Shelf = () => {
 
   return (
     <div className="px-5">
-      <img src={icon} alt="logo" />
+      <img src={icon} width={150} alt="logo" />
       <Range status={4} />
       <h2
         style={{ color: "#0077FF" }}
-        className="text-xl font-bold text-center mt-9"
+        className="text-xl font-bold text-center mt-5"
       >
         Tokcha uzunligi va rangi avtomatik hisoblanadi
       </h2>
       <div
         style={{ height: "122px" }}
-        className="relative mt-14 flex justify-center"
+        className="relative mt-7 flex justify-center"
       >
         <img className="absolute" src={shelf} alt="shelf" />
-        <img className="absolute -bottom-4 left-1/2" src={arrow} alt="arrow" />
+        <img className="absolute -bottom-4 left-44" src={arrow} alt="arrow" />
       </div>
       <div className="text-center ml-44 mt-2">
         <p style={{ color: "#0077FF" }} className="text-base font-semibold">
@@ -94,7 +94,7 @@ const Shelf = () => {
 
       <div
         // style={{ width: "350px" }}
-        className="flex justify-between flex-wrap mt-14"
+        className="flex justify-between flex-wrap mt-2"
       >
         {state.objects.map((item, index) => {
           return (
@@ -162,7 +162,7 @@ const Shelf = () => {
       <div>
         <h3
           style={{ color: "#0077FF" }}
-          className="text-xl font-bold mt-11 mb-4"
+          className="text-xl font-bold mt-5 mb-3"
         >
           Hududingizni tanlang
         </h3>
@@ -203,7 +203,7 @@ const Shelf = () => {
           })}
         </Select>
       </div>
-      <div className="mt-32">
+      <div style={{marginTop:"26px"}}>
         <div className=" flex items-center justify-between">
           <Link to={"/color"}>
             <Button

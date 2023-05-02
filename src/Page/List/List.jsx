@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 // import { useSelector } from "react-redux";
 import Range from "../../Components/Range";
 import icon from "../../assets/icon.svg";
@@ -10,15 +10,33 @@ import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import { loadState, saveState } from '../../Utils/storage';
+import { loadState } from '../../Utils/storage';
 // import { useSelector } from "react-redux";
+
+
 
 const List = () => {
   // const navigate = useNavigate()
   const [data, setData] = React.useState([])
   const [dataOrder, setDataOrder] = React.useState([])
 
+  function imgIndex(id){
+    if(dataOrder.colorNumber == 1 && dataOrder.glassNumber==1) return id
+    if(dataOrder.colorNumber == 1 && dataOrder.glassNumber==2 && id>8 ) return id+6
+    if(dataOrder.colorNumber == 1 && dataOrder.glassNumber==2 && id<5 ) return id+4
   
+    if(dataOrder.colorNumber == 2 && dataOrder.glassNumber==1) return id+32
+    if(dataOrder.colorNumber == 2 && dataOrder.glassNumber==2 && id>8 ) return id+38
+    if(dataOrder.colorNumber == 2 && dataOrder.glassNumber==2 && id<5 ) return id+36
+  
+    if(dataOrder.colorNumber == 3 && dataOrder.glassNumber==1) return id+64
+    if(dataOrder.colorNumber == 3 && dataOrder.glassNumber==2 && id>8 ) return id+70
+    if(dataOrder.colorNumber == 3 && dataOrder.glassNumber==2 && id<5 ) return id+68
+  
+    if(dataOrder.colorNumber == 4 && dataOrder.glassNumber==1) return id+96
+    if(dataOrder.colorNumber == 4 && dataOrder.glassNumber==2 && id>8 ) return id+102
+    if(dataOrder.colorNumber == 4 && dataOrder.glassNumber==2 && id<5 ) return id+100
+  }
   React.useEffect(() => {
     const dataLocal = loadState('orderData')
     const orderDataValue = loadState('orderDataValue')
@@ -27,12 +45,12 @@ const List = () => {
   },[])
   return (
     <div className="px-5">
-      <img src={icon} alt="logo" />
+      <img src={icon} width={150} alt="logo" />
       <Range status={5} />
       {
       dataOrder && <img
         className="mx-auto text-center mt-7"
-        src={`http://185.217.131.88:8080/attachment/open/${dataOrder.imageId}`}
+        src={`http://185.217.131.88:8080/attachment/open/${imgIndex(dataOrder.imageId)}`}
         width={269}
         height={286}
         alt=""
