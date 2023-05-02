@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.scss'
 import "./global.scss"
 import { Provider } from "react-redux";
-import { store } from './Store/Store.js'
+import { store } from './Store/store.js'
 import { BrowserRouter as Router } from 'react-router-dom'
 import axios from 'axios'
 

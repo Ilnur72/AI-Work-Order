@@ -53,8 +53,10 @@ const Shelf = () => {
   const orderData = useSelector((state) => state.orderValue);
 
   console.log(orderData);
-  async function handlerSubmit() {
+  React.useEffect(() => {
     dispatch(orderValue(shelfId));
+  },[region, state])
+  async function handlerSubmit() {
     try{
       const data = await axios.post("/orderCalculate/getPriceList", orderData);
       console.log(data);
