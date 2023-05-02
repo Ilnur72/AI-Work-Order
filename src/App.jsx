@@ -11,7 +11,7 @@ import Shelf from "./Page/Shelf/Shelf";
 function App() {
 
   return (
-    <div style={{width: "412px"}} className="shadow-2xl pb-10  mx-auto mt-5 relative">
+    <div style={{maxWidth: "412px", width:"100%"}} className="pb-10  mx-auto mt-5 relative">
      <Routes>
        {/* <Route path="/" element={<Home/>}/> */}
        {/* <Route path="/category" element={<Category/>}/> */}
