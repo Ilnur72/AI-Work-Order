@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import { useSelector } from "react-redux";
 import Range from "../../Components/Range";
 import icon from "../../assets/icon.svg";
@@ -9,11 +9,16 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const List = () => {
+  const navigate = useNavigate()
   const img = useSelector((state) => state.orderValue);
   const data = useSelector((state) => state.dataValue);
+  React.useEffect(() => {
+    if(!img.imageId) navigate("/")
+  },[img])
+  console.log(data);
   return (
     <div className="px-5">
       <img src={icon} alt="logo" />
@@ -62,8 +67,8 @@ const List = () => {
           className="pl-5 pr-6 rounded-t-2xl rounded-b-md pb-2 mt-6"
         >
           <div className="text-center"><strong className="text-xs font-bold">Taklif</strong></div>
-          <div className="flex justify-between gap-5">
-            <div className="flex flex-col justify-between">
+          <div className="flex justify-between gap-5 items-center">
+            <div className="flex flex-col justify-between gap-2">
               <strong className="text-xl font-bold">{item.amount?.toFixed()} so'm</strong>
               <p style={{ color: "#083D25" }} className="text-base font-normal">
                 {item.directorName}
@@ -76,7 +81,7 @@ const List = () => {
                     {item.region}
                   </p>
                 </div>
-                <Button
+                {/* <Button
                   sx={{
                     background: "#27BC7A",
                     ":hover": { background: "#2ba770" },
@@ -88,12 +93,12 @@ const List = () => {
                   size="small"
                 >
                   Buyurtma berish
-                </Button>
+                </Button> */}
               </div>
             </div>
   
-            <div style={{width:"61px", height:"100px"}} className="relative">
-              <div className="flex flex-col justify-between absolute gap-2 -top-4">
+            <div style={{width:"61px"}} className="">
+              <div className="flex flex-col justify-between gap-2 ">
               <Button
                 sx={{
                   background: "#27BC7A",
@@ -124,7 +129,7 @@ const List = () => {
                   style={{ color: "#ffffff" }}
                 ></i>
               </Button></Link>
-              <Button
+              {/* <Button
                 sx={{
                   background: "#27BC7A",
                   ":hover": { background: "#2ba770" },
@@ -138,7 +143,7 @@ const List = () => {
                   className="fa-solid fa-map-location-dot fa-xl"
                   style={{ color: "#ffffff" }}
                 ></i>
-              </Button>
+              </Button> */}
               </div>
             </div>
           </div>

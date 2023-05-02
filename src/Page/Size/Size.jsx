@@ -74,7 +74,7 @@ const Size = () => {
             />
           </div>
         </div>
-        <img className="ml-36" src={arrowWidth} alt="" />
+        <img style={{marginLeft:"140px"}} className="" src={arrowWidth} alt="" />
         <div className="flex justify-end mr-10">
           <div className="w-24">
             <p
