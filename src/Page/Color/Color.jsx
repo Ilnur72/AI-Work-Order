@@ -48,7 +48,6 @@ const Color = () => {
       return false;
     }
   }
-  console.log(imgId);
   React.useEffect(() => {
     toggleBtn(0)
     windowToggle(0)

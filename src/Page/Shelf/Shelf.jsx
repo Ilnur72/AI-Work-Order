@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { orderValue } from "../../Store/orderValueSlice";
+import { dataValue } from "../../Store/dataSlice";
 
 const Shelf = () => {
   const [shelfId, setShelfId] = React.useState({
@@ -52,14 +53,13 @@ const Shelf = () => {
   const dispatch = useDispatch();
   const orderData = useSelector((state) => state.orderValue);
 
-  console.log(orderData);
   React.useEffect(() => {
     dispatch(orderValue(shelfId));
   },[region, state])
   async function handlerSubmit() {
     try{
       const data = await axios.post("/orderCalculate/getPriceList", orderData);
-      console.log(data);
+      dispatch(dataValue(data))
     } catch(error){
       console.log(error);
     }
@@ -178,9 +178,9 @@ const Shelf = () => {
             width: "191px",
             background: "#00A0FA",
             color: "white",
-            ".MuiOutlinedInput-notchedOutline": {
-              borderColor: "rgba(228, 219, 233, 0.25)",
-            },
+              ".MuiOutlinedInput-notchedOutline": {
+                borderColor: "rgba(228, 219, 233, 0.25)",
+              },
             "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
               borderColor: "rgba(228, 219, 233, 0.25)",
             },
@@ -211,7 +211,7 @@ const Shelf = () => {
               <i className="fa-solid fa-arrow-left fa-2xl"></i>
             </Button>
           </Link>
-          <Link to={"/shelf"}>
+          <Link to={"/list"}>
             <Button
               onClick={handlerSubmit}
               variant="contained"

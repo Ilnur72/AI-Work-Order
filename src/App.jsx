@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Color from "./Page/Color/Color";
 import Shelf from "./Page/Shelf/Shelf";
+import List from "./Page/List/List";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
        <Route path="/figure" element={<Figure/>}/>
        <Route path="/color" element={<Color/>}/>
        <Route path="/shelf" element={<Shelf/>}/>
+       <Route path="/list" element={<List/>}/>
      </Routes>
     </div>
   )
