@@ -3,6 +3,8 @@ import Range from "../../Components/Range";
 import icon from "../../assets/icon.svg";
 import Slick from "./Components/Slick";
 import ButtonLink from "../../Components/ButtonLink.jsx";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const categoryOne = [
   { imageId: 9, category:5 },
@@ -24,6 +26,8 @@ const categoryThree = [{ imageId: 1, category:1 }, { imageId: 2, category:2 }, {
 
 const Figure = () => {
   const [data, setData] = React.useState(null);
+  const orderValue = useSelector((state) => state.orderValue)
+  const navigate = useNavigate()
   React.useEffect(() => {
     if (!data) {
       setData(categoryOne[0]);
@@ -47,6 +51,7 @@ const Figure = () => {
   }
   React.useEffect(() => {
     toggleBtn(0);
+    if(orderValue.width == 0) navigate("/")
   }, []);
 
   return (

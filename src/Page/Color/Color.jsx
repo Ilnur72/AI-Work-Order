@@ -11,10 +11,12 @@ import color4 from "../../assets/color/colorId-4.svg"
 import window1 from "../../assets/color/windowColor-1.svg"
 import window2 from "../../assets/color/windowColor-2.svg"
 import ButtonLink from "../../Components/ButtonLink";
+import { useNavigate } from "react-router-dom";
 
 
 const Color = () => {
-  const imgage = useSelector((state) => state.orderValue);
+  const orderValue = useSelector((state) => state.orderValue)
+  const navigate = useNavigate()
   const [imgId, setImgId ] = React.useState({colorNumber:1, glassNumber:1})
 
   const [state, setState] = React.useState({
@@ -51,6 +53,7 @@ const Color = () => {
   React.useEffect(() => {
     toggleBtn(0)
     windowToggle(0)
+    if(orderValue.width == 0) navigate('/')
   },[])
   return (
     <div className="px-5">
@@ -58,7 +61,7 @@ const Color = () => {
       <Range status={3} />
       <div className="mt-11 flex justify-center">
         <img
-          src={`http://185.217.131.88:8080/attachment/open/${imgage.imageId}`}
+          src={`http://185.217.131.88:8080/attachment/open/${orderValue.imageId}`}
           alt="logo"
           width={300}
           height={281}

@@ -5,13 +5,15 @@ import icon from "../../assets/icon.svg";
 import shelf from "../../assets/shelf/shelf.svg";
 import arrow from "../../assets/shelf/arrow.svg";
 import { Button, MenuItem, Select } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { orderValue } from "../../Store/orderValueSlice";
 import { dataValue } from "../../Store/dataSlice";
+import { saveState } from "../../Utils/storage";
 
 const Shelf = () => {
+  const navigate = useNavigate()
   const [shelfId, setShelfId] = React.useState({
     shelfSize: 0,
     region: "Toshkent vil",
@@ -41,8 +43,10 @@ const Shelf = () => {
       return false;
     }
   }
+  const orderData = useSelector((state) => state.orderValue);
   React.useEffect(() => {
     toggleBtn(0);
+    if(orderData.width == 0) navigate("/")
   }, []);
 
   function handleChange(e) {
@@ -51,7 +55,6 @@ const Shelf = () => {
     // console.log(e.target.value);
   }
   const dispatch = useDispatch();
-  const orderData = useSelector((state) => state.orderValue);
 
   React.useEffect(() => {
     dispatch(orderValue(shelfId));
@@ -60,6 +63,9 @@ const Shelf = () => {
     try{
       const data = await axios.post("/orderCalculate/getPriceList", orderData);
       dispatch(dataValue(data))
+      saveState('orderData', data)
+      saveState('orderDataValue', orderData)
+
     } catch(error){
       console.log(error);
     }
@@ -91,12 +97,12 @@ const Shelf = () => {
       </div>
 
       <div
-        style={{ wdith: "345px" }}
-        className="flex justify-between flex-wrap"
+        // style={{ width: "350px" }}
+        className="flex justify-between flex-wrap mt-14"
       >
         {state.objects.map((item, index) => {
           return (
-            <div key={index} className="relative mt-14">
+            <div key={index} className="relative ">
               {toggleActive(index) ? (
                 <i
                   className={`fa-solid fa-circle-check  absolute ${
@@ -140,10 +146,10 @@ const Shelf = () => {
                   marginTop: item.shelfSize === 0 ? "0" : "16px",
                   marginLeft:
                     item.shelfSize === 0
-                      ? "10px"
+                      ? "8px"
                       : item.shelfSize === 15
                       ? "0"
-                      : "6px",
+                      : "8px",
                 }}
                 className="flex justify-center items-center text-xl font-semibold"
               >
