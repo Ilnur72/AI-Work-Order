@@ -1,4 +1,4 @@
-// import React from 'react'
+import React, { useState } from 'react'
 // import { useSelector } from "react-redux";
 import Range from "../../Components/Range";
 import icon from "../../assets/icon.svg";
@@ -10,30 +10,34 @@ import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import { loadState } from '../../Utils/storage';
+import { loadState, saveState } from '../../Utils/storage';
+// import { useSelector } from "react-redux";
 
 const List = () => {
   // const navigate = useNavigate()
-  const dataLocal = loadState('orderData')
-  const orderDataValue = loadState('orderDataValue')
-  console.log(orderDataValue);
-  // const img = useSelector((state) => state.orderValue);
-  // const data = useSelector((state) => state.dataValue);
-  // React.useEffect(() => {
-  //   // if(img.width == 0) navigate("/")
-  // },[img])
-  // console.log(data);
+  const [data, setData] = React.useState([])
+  const [dataOrder, setDataOrder] = React.useState([])
+
+  
+  React.useEffect(() => {
+    const dataLocal = loadState('orderData')
+    const orderDataValue = loadState('orderDataValue')
+    setData(dataLocal)
+    setDataOrder(orderDataValue)
+  },[])
   return (
     <div className="px-5">
       <img src={icon} alt="logo" />
       <Range status={5} />
-      <img
+      {
+      dataOrder && <img
         className="mx-auto text-center mt-7"
-        src={`http://185.217.131.88:8080/attachment/open/${orderDataValue.imageId}`}
+        src={`http://185.217.131.88:8080/attachment/open/${dataOrder.imageId}`}
         width={269}
         height={286}
         alt=""
       />
+      }
       {/* <TextField
         InputProps={{style:{width:"350px", height:"45px", borderRadius:"14px"}}}
         id="outlined-basic"
@@ -65,7 +69,7 @@ const List = () => {
         </IconButton>
       </Paper>
       {
-        dataLocal && dataLocal.data?.map((item, index) => {
+        data && data.data?.map((item, index) => {
           return <div key={index}
           style={{ width: "351px", height: "137px", background: "#D3F0E3", }}
           className="pl-5 pr-6 rounded-t-2xl rounded-b-md pb-2 mt-6 mx-auto"

@@ -18,7 +18,6 @@ function Slick({ category, setData}) {
   React.useEffect(() => {
     setData(category[activeDotIndex]);
   }, [activeDotIndex,category]);
-  // console.log(category[activeDotIndex].id);
 
   const settings = {
     dots: true,

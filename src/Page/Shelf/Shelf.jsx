@@ -9,7 +9,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { orderValue } from "../../Store/orderValueSlice";
-import { dataValue } from "../../Store/dataSlice";
 import { saveState } from "../../Utils/storage";
 
 const Shelf = () => {
@@ -52,7 +51,6 @@ const Shelf = () => {
   function handleChange(e) {
     setShelfId({ ...shelfId, region: e.target.value });
     setRegion(e.target.value);
-    // console.log(e.target.value);
   }
   const dispatch = useDispatch();
 
@@ -62,15 +60,13 @@ const Shelf = () => {
   async function handlerSubmit() {
     try{
       const data = await axios.post("/orderCalculate/getPriceList", orderData);
-      dispatch(dataValue(data))
       saveState('orderData', data)
       saveState('orderDataValue', orderData)
-
+      navigate("/list")
     } catch(error){
       console.log(error);
     }
   }
-  // console.log(orderData);
 
   return (
     <div className="px-5">
@@ -217,7 +213,6 @@ const Shelf = () => {
               <i className="fa-solid fa-arrow-left fa-2xl"></i>
             </Button>
           </Link>
-          <Link to={"/list"}>
             <Button
               onClick={handlerSubmit}
               variant="contained"
@@ -225,7 +220,6 @@ const Shelf = () => {
             >
               <i className="fa-solid fa-arrow-right fa-2xl"></i>
             </Button>
-          </Link>
         </div>
       </div>
     </div>

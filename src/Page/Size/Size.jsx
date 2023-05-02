@@ -10,6 +10,7 @@ import arrowHeight from "../../assets/SizePage/ArrowHeight.svg";
 import arrowWidth from "../../assets/SizePage/ArrowWidth.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { orderValue } from "../../Store/orderValueSlice";
+import { loadState } from "../../Utils/storage";
 
 const Size = () => {
   const navigate = useNavigate();
@@ -20,10 +21,17 @@ const Size = () => {
     reset,
   } = useForm();
 
+  const orderDataValue = loadState('orderDataValue')
+  const orderData = loadState('orderData')
+
   const submit = async (data) => {
     await dispatch(orderValue(data));
     navigate("/figure");
     reset();
+    if(orderData && orderDataValue) {
+      localStorage.removeItem('orderDataValue')
+      localStorage.removeItem('orderData')
+    }
   };
 
   return (
