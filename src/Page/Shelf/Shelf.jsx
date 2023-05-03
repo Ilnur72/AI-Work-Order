@@ -24,6 +24,7 @@ const Shelf = () => {
     objects: [
       { shelfSize: 0 },
       { shelfSize: 15 },
+      { shelfSize: 20 },
       { shelfSize: 25 },
       { shelfSize: 30 },
       { shelfSize: 35 },
@@ -94,7 +95,7 @@ const Shelf = () => {
 
       <div
         // style={{ width: "350px" }}
-        className="flex justify-between flex-wrap mt-2"
+        className="flex flex-wrap mt-2"
       >
         {state.objects.map((item, index) => {
           return (

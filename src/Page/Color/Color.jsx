@@ -26,7 +26,6 @@ const Color = () => {
   function toggleBtn(index) {
     setState({ ...state, activeObject: state.objects[index]});
     setImgId({...imgId,colorNumber: state.objects[index].id,})
-    console.log(state.objects[index].id);
   }
   function toggleActive(index) {
     if (state.objects[index] === state.activeObject) {
