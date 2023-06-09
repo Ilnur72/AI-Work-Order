@@ -1,12 +1,12 @@
 import React from "react";
 import Range from "../../Components/Range";
 import icon from "../../assets/icon.png";
-import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
+// import Paper from "@mui/material/Paper";
+// import InputBase from "@mui/material/InputBase";
+// import Divider from "@mui/material/Divider";
+// import IconButton from "@mui/material/IconButton";
 // import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
+// import DirectionsIcon from "@mui/icons-material/Directions";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { loadState } from "../../Utils/storage";
