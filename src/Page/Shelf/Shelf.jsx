@@ -60,7 +60,7 @@ const Shelf = () => {
   },[region])
   async function handlerSubmit() {
     try{
-      const data = await axios.post("/getPriceList/window", orderData);
+      const data = await axios.post("/orderCalculate/getPriceList/window", orderData);
       saveState('orderData', data)
       saveState('orderDataValue', orderData)
       navigate("/list")
