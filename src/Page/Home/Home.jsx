@@ -1,5 +1,5 @@
 import React from "react";
-import icon from "../../assets/icon.svg";
+import icon from "../../assets/icon.png";
 import Hamburger from "hamburger-react";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <img src={icon} alt="" />
+        <img src={icon} width={100} height={50} alt="" />
         <Hamburger
           rounded
           distance="md"

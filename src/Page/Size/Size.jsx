@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 //img
-import icon from "../../assets/icon.svg";
+import icon from "../../assets/icon.png";
 import arrowHeight from "../../assets/SizePage/ArrowHeight.svg";
 import arrowWidth from "../../assets/SizePage/ArrowWidth.svg";
 import { Link, useNavigate } from "react-router-dom";
@@ -37,7 +37,7 @@ const Size = () => {
 
   return (
     <div>
-      <img src={icon} width={150} alt="logo" />
+      <img src={icon} width={120} className="my-5" alt="logo" />
       <Range status={1} />
       <h2 className="text-zinc-600 text-2xl font-semibold mt-8 text-center">
         Olchamlarni kiriting

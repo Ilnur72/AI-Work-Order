@@ -1,7 +1,7 @@
 import React from "react";
 import Range from "../../Components/Range";
 import { useAxios } from "../../Hook/useAxios.js";
-import icon from "../../assets/icon.svg";
+import icon from "../../assets/icon.png";
 import shelf from "../../assets/shelf/shelf.svg";
 import arrow from "../../assets/shelf/arrow.svg";
 import { Button, MenuItem, Select } from "@mui/material";
@@ -71,7 +71,7 @@ const Shelf = () => {
 
   return (
     <div className="px-5">
-      <img src={icon} width={150} alt="logo" />
+      <img src={icon} width={120} className="my-5" alt="logo" />
       <Range status={4} />
       <h2
         style={{ color: "#0077FF" }}

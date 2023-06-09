@@ -1,11 +1,11 @@
 import React from "react";
 import Range from "../../Components/Range";
-import icon from "../../assets/icon.svg";
+import icon from "../../assets/icon.png";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -51,7 +51,7 @@ const List = () => {
   }, []);
   return (
     <div className="px-5">
-      <img src={icon} width={150} alt="logo" />
+      <img src={icon} width={120} className="my-5" alt="logo" />
       <Range status={5} />
       {dataOrder && (
         <img
@@ -64,13 +64,7 @@ const List = () => {
           alt=""
         />
       )}
-      {/* <TextField
-        InputProps={{style:{width:"350px", height:"45px", borderRadius:"14px"}}}
-        id="outlined-basic"
-        variant="outlined"
-        size="small"
-      /> */}
-      <Paper
+      {/* <Paper
         component="form"
         sx={{
           p: "2px 4px",
@@ -93,7 +87,7 @@ const List = () => {
         <IconButton color="primary" sx={{ p: "10px" }} aria-label="directions">
           <DirectionsIcon />
         </IconButton>
-      </Paper>
+      </Paper> */}
       {data &&
         data.data?.map((item, index) => {
           return (
@@ -127,19 +121,6 @@ const List = () => {
                         {item.region}
                       </p>
                     </div>
-                    {/* <Button
-                  sx={{
-                    background: "#27BC7A",
-                    ":hover": { background: "#2ba770" },
-                    width:"111px",height:"28px",
-                    fontSize:"8px", fontWeight:'700'
-                  }}
-                  variant="contained"
-                  color="success"
-                  size="small"
-                >
-                  Buyurtma berish
-                </Button> */}
                   </div>
                 </div>
 
@@ -178,21 +159,6 @@ const List = () => {
                       </Button>
                     </Link>
                     <p className="font-bold text-sm">{item.phoneNumber}</p>
-                    {/* <Button
-                sx={{
-                  background: "#27BC7A",
-                  ":hover": { background: "#2ba770" },
-                  width: "61px",
-                  height: "35px",
-                }}
-                variant="contained"
-                color="success"
-              >
-                <i
-                  className="fa-solid fa-map-location-dot fa-xl"
-                  style={{ color: "#ffffff" }}
-                ></i>
-              </Button> */}
                   </div>
                 </div>
               </div>

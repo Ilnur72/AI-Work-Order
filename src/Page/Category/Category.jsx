@@ -1,6 +1,6 @@
 // import React from 'react'
 import { Button } from "@mui/material";
-import icon from "../../assets/icon.svg";
+import icon from "../../assets/icon.png";
 import window1 from "../../assets/category/window-1.svg";
 import window2 from "../../assets/category/window-2.svg";
 import window3 from "../../assets/category/window-3.svg";
@@ -17,7 +17,7 @@ const Category = () => {
   }
   return (
     <div className="px-5 pb-80">
-      <img src={icon} alt="" />
+      <img src={icon} width={120} className="my-5" alt="logo" />
       <div className="flex gap-7 mt-3">
         <div className="flex flex-col gap-6">
           <div

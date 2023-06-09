@@ -1,6 +1,6 @@
 import React from "react";
 import Range from "../../Components/Range";
-import icon from "../../assets/icon.svg";
+import icon from "../../assets/icon.png";
 import Slick from "./Components/Slick";
 import ButtonLink from "../../Components/ButtonLink.jsx";
 import { useNavigate } from "react-router-dom";
@@ -56,7 +56,7 @@ const Figure = () => {
 
   return (
     <div className="px-5">
-      <img src={icon} width={150} alt="logo" />
+      <img src={icon} width={120} className="my-5" alt="logo" />
       <Range status={2} />
       <div className="pt-9">
         <Slick

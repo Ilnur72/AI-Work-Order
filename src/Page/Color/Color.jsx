@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Range from "../../Components/Range";
 
 //img
-import icon from "../../assets/icon.svg";
+import icon from "../../assets/icon.png";
 import color1 from "../../assets/color/colorId-1.svg"
 import color2 from "../../assets/color/colorId-2.svg"
 import color3 from "../../assets/color/colorId-3.svg"
@@ -74,7 +74,7 @@ const Color = () => {
   }
   return (
     <div className="px-5">
-      <img src={icon} width={150} alt="logo" />
+      <img src={icon} width={120} className="my-5" alt="logo" />
       <Range status={3} />
       <div className="mt-5  flex justify-center">
         <img
