@@ -17,7 +17,7 @@ const Shelf = () => {
     shelfSize: 0,
     region: "Toshkent vil",
   });
-  const [region, setRegion] = React.useState("Toshkent vil");
+  const [region, setRegion] = React.useState('Toshkent vil');
   const { data } = useAxios({ url: "region", method: "get" });
   const [state, setState] = React.useState({
     activeObject: null,
@@ -54,13 +54,13 @@ const Shelf = () => {
     setRegion(e.target.value);
   }
   const dispatch = useDispatch();
-
+ 
   React.useEffect(() => {
     dispatch(orderValue(shelfId));
-  },[region, state])
+  },[region])
   async function handlerSubmit() {
     try{
-      const data = await axios.post("/orderCalculate/getPriceList", orderData);
+      const data = await axios.post("/getPriceList/window", orderData);
       saveState('orderData', data)
       saveState('orderDataValue', orderData)
       navigate("/list")

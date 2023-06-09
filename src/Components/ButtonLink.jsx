@@ -2,7 +2,7 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { orderValue } from "../Store/orderValueSlice";
 //
 const ButtonLink = ({leftLink, rightLink, data}) => {
@@ -42,5 +42,5 @@ export default ButtonLink;
 ButtonLink.propTypes = {
   leftLink: PropTypes.string.isRequired,
   rightLink: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
   };

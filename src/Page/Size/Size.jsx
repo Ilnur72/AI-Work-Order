@@ -25,7 +25,8 @@ const Size = () => {
   const orderData = loadState('orderData')
 
   const submit = async (data) => {
-    await dispatch(orderValue(data));
+    const dataWin = {...data, width: `${data.width*10}`, height: `${data.height*10}`}
+    await dispatch(orderValue(dataWin));
     navigate("/figure");
     reset();
     if(orderData && orderDataValue) {
